@@ -55,13 +55,9 @@
 ```bash
 📁 docs/
 ├── 01-intro-nestjs.md         # NestJS 是什么，为什么选择它
-├── 02-core-concepts.md        # Controller / Service / Module / Provider
-├── 03-routing-and-guards.md   # 路由、守卫、中间件
-├── 04-jwt-auth.md             # 登录认证与 JWT 实现
-├── 05-rbac.md                 # 权限控制设计
-├── 06-typeorm-prisma.md       # 数据库操作对比与实践
-├── 07-swagger.md              # 接口文档生成与使用
-├── 08-deploy-docker.md        # NestJS 项目部署指南
+├── 02-Module.md               # Module
+├── 03-Controller.md           # Controller
+├── 04-providers.md            # Provider
 ...
 
 ```
@@ -97,13 +93,3 @@ GitHub 上高质量项目代码参考（持续整理中）
 
 ---
 
-## ✅ 使用方式
-
-你可以：
-- 粘贴到你 GitHub 仓库的 `README.md` 中
-- 持续补充 `docs/` 中的 Markdown 文件（每个笔记独立维护，便于组织）
-- 将笔记同步输出到博客平台，形成多渠道展示
-
----
-
-如果你想我帮你搭建 `docs/` 子目录的初始结构，或者生成一个 Docusaurus 文档站点，也可以告诉我，我可以一步步帮你
