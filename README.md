@@ -58,6 +58,8 @@
 ├── 02-Module.md               # Module
 ├── 03-Controller.md           # Controller
 ├── 04-providers.md            # Provider
+├── 05-middleware.md           # middleware
+
 ...
 
 ```
