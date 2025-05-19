@@ -34,9 +34,31 @@ import { AppService } from './app.service';
 export class AppModule {}
 ```
 
+## ModuleRef 检索实例
+
+`ModuleRef` 是 NestJS 提供的一个工具，**允许你在运行时手动获取或创建服务（Provider）的实例**。
+
+> 平时注入服务(这是 **静态注入**（写死在构造函数里)
+
+```js
+constructor(private readonly userService: UserService) {}
+```
+
+Nest 提供 `ModuleRef` 类来导航内部提供器列表，并使用其注入令牌作为查找键获取对任何提供器的引用。
+
+
+
+
+
+
+
+
+
 ## 动态模块
 
 在 NestJS 中，**动态模块（Dynamic Module）** 是一种高级模块设计模式，用于在运行时根据传入的配置动态创建模块内容（如服务、依赖、导出项等）。这是构建可复用、可配置库模块（如数据库、缓存、日志等）的核心能力。
+
+
 
 
 
