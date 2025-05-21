@@ -145,5 +145,43 @@ bootstrap();                                     // 调用启动函数，运行�
 
 
 
+## 总结
 
+| 类别            | 知识点                                   | 说明                                                         |
+| --------------- | ---------------------------------------- | ------------------------------------------------------------ |
+| 基础结构        | `@Module()` 装饰器                       | 用于定义模块，接受 `imports`、`controllers`、`providers` 等参数 |
+| 启动流程        | `main.ts` + `bootstrap()`                | 启动入口，创建应用实例并监听端口                             |
+| Controller      | 控制器与装饰器                           | `@Controller()` + 路由方法（如 `@Get()`, `@Post()`）         |
+| DTO             | 数据传输对象                             | 定义接口请求/响应结构，常配合 `class-validator` 使用         |
+| Middleware      | 中间件与 consumer                        | 处理请求前逻辑，如日志、权限校验，使用 `configure()` 注册    |
+| Guard           | 守卫                                     | 实现 `CanActivate` 接口，用于路由权限控制                    |
+| Pipe            | 管道                                     | 用于验证、转换数据，支持内置/自定义，如 `ValidationPipe`     |
+| ExceptionFilter | 异常过滤器                               | 处理全局或局部异常，如 `HttpExceptionFilter`                 |
+| Interceptor     | 拦截器                                   | 可做统一响应格式、异常映射、日志、缓存等                     |
+| Lifecycle       | 生命周期钩子                             | `onModuleInit`, `onAppShutdown`, `onAppBootstrap` 等生命周期事件 |
+| Scope           | 控制器/服务作用域                        | `SINGLETON`（默认）、`REQUEST`、`TRANSIENT`                  |
+| Provider 注入   | useClass/useValue/useFactory/useExisting | 提供不同方式注入服务或值对象                                 |
+| ModuleRef       | 手动获取 Provider 实例                   | 用于运行时动态解析依赖，如多个 JWT 实例场景                  |
+| forwardRef      | 解决循环依赖                             | 可用于 `imports` 和 `providers` 中                           |
+| Discovery       | DiscoveryService                         | 动态扫描应用中带装饰器/元数据的类或方法                      |
+| 自定义装饰器    | 路由/参数/类装饰器                       | 创建自定义装饰器并结合元数据与 `Reflector` 反射使用          |
+| 验证模式        | 对象验证、模式验证                       | 类验证（DTO）或 schema 模式（如 Joi）                        |
+| 子域路由        | `@Controller({ host })`                  | 处理多子域，如 `admin.example.com`                           |
+| 通配符          | `*`, `:param`, `.`, `-`                  | 灵活匹配 URL 路由路径                                        |
+| 异步提供器      | `useFactory` + `async`                   | 可实现基于配置文件、远程获取等动态注入服务                   |
+| 响应映射        | class-transformer                        | 过滤或转换响应字段，如隐藏密码或重命名字段                   |
+| 统一响应格式    | 拦截器实现成功/失败统一结构              | 成功：映射响应，失败：交由异常过滤器兜底                     |
+| 状态共享        | 请求作用域 + 参数注入                    | 在多个组件间共享请求上下文数据（如当前用户）                 |
+| 延迟加载模块    | 动态 `import()`                          | 某些模块只在特定条件下加载                                   |
 
+## 建议搭配理解的组合
+
+| 实用场景              | 推荐组合                                     |
+| --------------------- | -------------------------------------------- |
+| 统一响应结构          | 拦截器 + 异常过滤器                          |
+| 权限控制              | 守卫 + 自定义装饰器 + `Reflector`            |
+| 请求用户信息          | 请求作用域 + 参数装饰器 + `ExecutionContext` |
+| 多环境配置            | 异步 `useFactory` 提供器 + 环境变量          |
+| 插件/动态路由注册系统 | DiscoveryService + 自定义元数据 + Reflector  |
+
+继续往下面看。

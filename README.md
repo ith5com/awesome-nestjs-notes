@@ -39,7 +39,9 @@
 
 ### 🔧 实战进阶（API 构建 + 安全 + 部署）
 
-- 使用 TypeORM / Prisma 操作数据库
+👉 [实战代码仓库](https://github.com/ith5com/nestjs-admin-ruoyi)
+
+- 使用 TypeORM 操作数据库
 - 登录注册功能实现（JWT）
 - RBAC 权限系统设计
 - 接口统一响应结构 + 异常处理封装
@@ -79,15 +81,11 @@
 > 🛠 如果你有想要学习的模块或内容，欢迎提 Issue 或 PR～
 
 📚 推荐资源
-NestJS 官方文档（推荐从这里开始）
+[NestJS 官方文档](https://nest.nodejs.cn/)（推荐从这里开始）
 
-TypeORM 文档
+[TypeORM 文档](https://typeorm.bootcss.com/)
 
-Prisma 文档
 
-JWT.io 教程
-
-GitHub 上高质量项目代码参考（持续整理中）
 
 🤝 参与贡献
 欢迎你参与这个仓库，一起共建优秀的 NestJS 中文学习资料集。
