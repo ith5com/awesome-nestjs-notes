@@ -61,7 +61,9 @@
 ├── 05-middleware.md           # middleware
 ├── 06-exception-filters.md    # 异常过滤器
 ├── 07-pipe.md                 # 管道
-├── 07-guards.md               # 守卫
+├── 08-guards.md               # 守卫
+├── 09-interceptor.md          # 拦截器
+├── 10-decorators.md           # 装饰器
 
 ...
 
