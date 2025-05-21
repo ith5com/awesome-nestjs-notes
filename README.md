@@ -64,7 +64,8 @@
 ├── 08-guards.md               # 守卫
 ├── 09-interceptor.md          # 拦截器
 ├── 10-decorators.md           # 装饰器
-├── 10-config.md               # 
+├── 11-config.md               # 配置管理与环境变量
+├── 12-circular-dependency.md  # 循环依赖
 
 
 ...
