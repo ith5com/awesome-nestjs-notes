@@ -28,7 +28,7 @@
 
 ## 🧭 学习路线规划
 
-### 📕 基础入门（基础理论 + 框架结构）
+### 📕 基础入门（基础理论）
 
 - NestJS 简介与核心理念
 - 模块（Module）、控制器（Controller）、服务（Service）概念
@@ -64,6 +64,8 @@
 ├── 08-guards.md               # 守卫
 ├── 09-interceptor.md          # 拦截器
 ├── 10-decorators.md           # 装饰器
+├── 10-config.md               # 
+
 
 ...
 
