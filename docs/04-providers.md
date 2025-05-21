@@ -376,5 +376,95 @@ const connectionFactory = {
 export class AppModule {}
 ```
 
+## 异步Provider
+
+
+
+普通的提供器（Provider）通常同步实例化，比如直接用 `useClass` 或 `useValue`，但是有些场景下，我们需要异步完成初始化步骤后才得到实例，比如：
+
+- 从数据库或远程接口加载配置
+- 异步连接数据库或缓存
+- 需要等待某些异步依赖准备好
+
+这时就要用异步提供器，用 `useFactory` 并返回一个 `Promise`。
+
+### 例子
+
+```js
+@Module({
+  providers: [
+    {
+      provide: 'ASYNC_CONFIG',
+      useFactory: async () => {
+        // 模拟异步获取配置，比如从远程API或文件
+        const config = await fetchConfigFromRemote();
+        return config;
+      },
+    },
+  ],
+  exports: ['ASYNC_CONFIG'],
+})
+export class ConfigModule {}
+
+```
+
+### 使用场景
+
+- 读取异步配置
+- 连接数据库（TypeORM、Mongoose 等模块通常就是异步配置）
+- 初始化第三方 SDK
+
+### 异步模块加载
+
+```js
+@Module({})
+export class DatabaseModule {
+  static forRootAsync(options: AsyncOptions): DynamicModule {
+    return {
+      module: DatabaseModule,
+      imports: options.imports || [],
+      providers: [
+        {
+          provide: 'DATABASE_CONNECTION',
+          useFactory: async () => {
+            const connection = await createDatabaseConnection();
+            return connection;
+          },
+          inject: options.inject || [],
+        },
+      ],
+      exports: ['DATABASE_CONNECTION'],
+    };
+  }
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
