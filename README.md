@@ -66,6 +66,10 @@
 ├── 10-decorators.md           # 装饰器
 ├── 11-config.md               # 配置管理与环境变量
 ├── 12-circular-dependency.md  # 循环依赖
+├── 13-module-reference.md     # 参考模块
+├── 14-lifecycle-events.md     # 声明周期事件
+
+
 
 
 ...
