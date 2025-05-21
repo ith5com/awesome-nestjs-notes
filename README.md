@@ -56,20 +56,24 @@
 
 ```bash
 📁 docs/
-├── 01-intro-nestjs.md         # NestJS 是什么，为什么选择它
-├── 02-Module.md               # Module
-├── 03-Controller.md           # Controller
-├── 04-providers.md            # Provider
-├── 05-middleware.md           # middleware
-├── 06-exception-filters.md    # 异常过滤器
-├── 07-pipe.md                 # 管道
-├── 08-guards.md               # 守卫
-├── 09-interceptor.md          # 拦截器
-├── 10-decorators.md           # 装饰器
-├── 11-config.md               # 配置管理与环境变量
-├── 12-circular-dependency.md  # 循环依赖
-├── 13-module-reference.md     # 参考模块
-├── 14-lifecycle-events.md     # 声明周期事件
+├── 01-intro-nestjs.md         # 基础：NestJS 是什么，为什么选择它
+├── 02-Module.md               # 基础：Module
+├── 03-Controller.md           # 基础：Controller
+├── 04-providers.md            # 基础：Provider
+├── 05-middleware.md           # 基础：middleware
+├── 06-exception-filters.md    # 基础：异常过滤器
+├── 07-pipe.md                 # 基础：管道
+├── 08-guards.md               # 基础：守卫
+├── 09-interceptor.md          # 基础：拦截器
+├── 10-decorators.md           # 基础：装饰器
+├── 11-config.md               # 基础：配置管理与环境变量
+├── 12-circular-dependency.md  # 基础：循环依赖
+├── 13-module-reference.md     # 基础：参考模块
+├── 14-lifecycle-events.md     # 基础：声明周期事件
+├── 15-swagger.md     				 # 实战部分：自动接口文档生成
+├── 16-database.md     				 # 实战部分：数据库配置
+
+
 
 
 
