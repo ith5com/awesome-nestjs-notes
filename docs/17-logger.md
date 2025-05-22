@@ -1,5 +1,92 @@
 # 日志
 
+## 内置日志系统
+
+Nest 带有一个内置的基于文本的日志器，它在应用引导和其他几种情况下使用，例如显示捕获的异常（即系统日志记录）。此功能是通过 `@nestjs/common` 包中的 `Logger` 类提供的。你可以完全控制日志系统的行为
+
+
+
+### 配置开启
+
+```js
+// app.module.ts
+NestFactory.create(AppModule, { logger: ??? })
+```
+
+#### 参数说明
+
+> `logger` 的 3 种取值类型说明：
+
+| 类型                 | 示例                       | 说明                                                |
+| -------------------- | -------------------------- | --------------------------------------------------- |
+| `boolean`            | `false`                    | 关闭全部日志输出（不打印任何 log、warn、error）     |
+| `LogLevel[]` 数组    | `['log', 'error', 'warn']` | 只启用特定等级的日志（比如生产环境只保留最必要的）  |
+| `LoggerService` 实例 | `new MyCustomLogger()`     | 使用你自定义实现的日志服务（如基于 `winston` 的类） |
+
+```js
+NestFactory.create(AppModule, { logger: true });  // 默认行为
+NestFactory.create(AppModule, { logger: false }); // 禁用所有日志
+
+
+NestFactory.create(AppModule, {
+  logger: ['log', 'warn', 'error'], // 推荐生产环境配置
+});
+
+NestFactory.create(AppModule, {
+  logger: ['log', 'warn', 'error', 'debug', 'verbose'], // 开发环境
+});
+
+严重程度：
+┌────────────┐
+│ error      │ ← 系统异常、接口失败
+├────────────┤
+│ warn       │ ← 潜在问题、配置告警
+├────────────┤
+│ log        │ ← 正常运行信息、状态
+├────────────┤
+│ debug      │ ← 开发调试日志
+├────────────┤
+│ verbose    │ ← 详细过程追踪（几乎每一步）
+└────────────┘
+
+```
+
+### 实现LoggerService
+
+```js
+import { LoggerService } from '@nestjs/common';
+
+class MyCustomLogger implements LoggerService {
+  log(message: any) {
+    console.log('MY LOG:', message);
+  }
+  error(message: any, trace?: string) {
+    console.error('MY ERROR:', message);
+  }
+  warn(message: any) {
+    console.warn('MY WARN:', message);
+  }
+  debug?(message: any) {
+    console.debug('MY DEBUG:', message);
+  }
+  verbose?(message: any) {
+    console.info('MY VERBOSE:', message);
+  }
+}
+
+NestFactory.create(AppModule, {
+  logger: new MyCustomLogger(),
+});
+```
+
+
+
+
+
+
+
+## winston日志系统
+
 ### 安装
 
 ```js
